@@ -5,7 +5,7 @@ import csv
 
 
 def get_title_data(url,page):
-    for i in range(21,page+1):
+    for i in range(1,page+1):
         newurl = url + str(i)
         html = requests.get(newurl, headers=headers).content
         selector = etree.HTML(html)
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     }
     base_url = 'https://gz.lianjia.com/ershoufang/tianhe/pg'
     info1 = []
-    get_title_data(base_url,40)
+    get_title_data(base_url,2)
     with open('lianjia.csv', 'w') as f:
         writer = csv.writer(f)
         writer.writerow(['总价', '单价', '小区', '房屋信息', '年代'])
